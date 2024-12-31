@@ -104,7 +104,7 @@ html {
     grid-template-columns: repeat(2, minmax(200px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: minmax(200px, 1fr);
-    gap: 15px;
+    gap: 25px;
     border: 1px solid black;
     margin: 0;
     justify-items: center;
@@ -114,8 +114,10 @@ html {
 .articleRight {
     display: flex;
     flex-direction: column;
-    flex: 3;
+    flex: 2.5;
     margin: 0;
+    margin-left: 5px;
+    margin-right: 20px;
 }
 
 .container .article {
@@ -146,13 +148,24 @@ html {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(auto-fit, 1fr);
     grid-auto-rows: repeat(auto-fit, 1fr);
+    background-color: white;
+    border-radius: 10px;
 
+}
+
+.articleRight .announcments {
+    margin-bottom: 35px;
+}
+
+.articleRight .trending {
+    margin-top: 35px;
 }
 
 .trending div,
 .announcments div {
     background-color: white;
     border: 1px solid black;
+
 }
 
 .container .footer {
