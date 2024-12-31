@@ -14,7 +14,7 @@ html {
     grid-template-rows: 2.5fr 12fr .5fr;
     grid-template-areas: 
     "sidebar nav"
-    "sidebar article"
+    "sidebar main"
     "footer footer";
 }
 
@@ -90,7 +90,7 @@ html {
 
 .main {
     background-color: lightsteelblue;
-    grid-area: article;
+    grid-area: main;
     display: flex;
     /* border: 1px solid black; */
     
@@ -141,6 +141,17 @@ html {
 .articleRight .announcments,
 .articleRight .trending {
     flex: 1;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-auto-rows: repeat(auto-fit, 1fr);
+
+}
+
+.trending div,
+.announcments div {
+    background-color: white;
     border: 1px solid black;
 }
 
