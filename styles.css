@@ -33,8 +33,7 @@ html {
     grid-area: sidebar;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, 1fr);
-    gap: 50px;
+    grid-template-rows: .2fr .75fr 1fr;
 }
 
 .container .sidebarsLogo {
@@ -48,23 +47,31 @@ html {
     padding: 15px;
 }
 
+.container .sidebars.Two {
+    padding-top: 0px;
+}
+
 .container .sidebars {
     color: white;
     text-align: left;
-    list-style: none;
     overflow: auto;
     font-size: 1rem;
+    /* border: 1px solid black; */
+
 }
 
 .container .sidebars li {
     list-style: none;
     padding-top: 10%;
+    /* border: 1px solid black; */
+}
+
+.container .sidebars.Two li {
+    padding-top: 0;
+    padding-bottom: 10%;
 }
 
 
-.sidebars.One {
-    border-radius: 10px; 
-}
 
 .nav {
     background-color: whitesmoke;    
@@ -116,6 +123,7 @@ html {
     overflow: auto;
     font-size: .8rem;
     border-radius: 6px;
+
 }
 
 .container .footer {
