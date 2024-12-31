@@ -11,10 +11,9 @@ html {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: minmax(225px, 1.5fr) 6fr;
-  grid-template-rows: 1.75fr .1fr 12fr .5fr;
+  grid-template-rows: 1fr 12fr .5fr;
   gap: 4px;
   grid-template-areas: 
-  "header header"
   "sidebar nav"
   "sidebar article"
   "footer footer";
