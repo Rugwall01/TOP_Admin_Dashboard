@@ -1,0 +1,104 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(225px, 1.5fr) 6fr;
+  grid-template-rows: 1.75fr .1fr 12fr .5fr;
+  gap: 4px;
+  grid-template-areas: 
+  "header header"
+  "sidebar nav"
+  "sidebar article"
+  "footer footer";
+}
+
+.container div {
+  padding: 5px;
+  font-size: 1rem;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: white;
+  border-radius: 1px;
+}
+
+
+.sidebar {
+  background-color: rgb(196, 0, 0);    
+  grid-area: sidebar;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  gap: 50px;
+}
+
+.container .sidebar {
+    padding: 15px;
+}
+
+.container .sidebars {
+    background-color: white;
+    color: black;
+    text-align: center;
+    overflow: auto;
+    font-size: 1rem;
+    padding-top: 16%;
+    
+}
+.sidebars.One {
+    border-radius: 10px; 
+}
+
+.nav {
+    background-color: rgb(196, 0, 0);    
+    grid-area: nav;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: 1fr;
+
+}
+
+.navs {
+    background-color: inherit;
+    text-align: center;
+    color: white;
+}
+
+.article {
+  background-color: lightsteelblue;
+  grid-area: article;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: minmax(200px, 1fr);
+  gap: 15px;
+}
+
+.container .article {
+  padding: 15px;
+
+}
+
+.container .articles {
+    background-color: white;
+    color: black;
+    text-align: center;
+    overflow: auto;
+    font-size: .8rem;
+}
+
+.container .footer {
+  background-color: #393f4d;
+  grid-area: footer;
+  font-size: .7rem;
+  font-weight: lighter;
+  padding-top: .5%;
+}
