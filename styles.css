@@ -17,7 +17,7 @@ html {
     box-sizing: border-box;
     display: grid;
     grid-template-columns: minmax(225px, 1.5fr) 6fr;
-    grid-template-rows: 2.5fr 12fr .5fr;
+    grid-template-rows: 1.15fr 12fr .5fr;
     grid-template-areas: 
     "sidebar nav"
     "sidebar main"
@@ -101,10 +101,21 @@ html {
     display: grid;
     border: 1px solid black;
     margin: 0;
-    grid-auto-flow: column;
+    grid-template-rows: .1fr 2fr;
     grid-template-columns: 2fr 1fr;
     /* justify-items: start;
     align-items: start; */
+    grid-template-areas: 
+    "hollow hollow"
+    "article articleRight";
+
+}
+
+#hollow {
+    align-items: baseline;
+    justify-content: baseline;
+    grid-area: hollow;
+    z-index: 10;
 
 }
 
@@ -119,6 +130,8 @@ html {
     border: 1px solid black;
     margin: 0;
     justify-items: center;
+    grid-area: article;
+    z-index: 1;
 
 }
 
@@ -137,7 +150,7 @@ html {
 } */
 
 .container .article {
-    padding: 15px;
+    padding: 26px;
 
 }
 
@@ -156,15 +169,16 @@ html {
     display: grid;
     max-height: 100%;
     grid-template-columns: minmax(200px, 300px);
-    grid-template-rows: repeat(auto-fit, clamp(300px, 1fr, 375px));
-    grid-auto-rows: clamp(300px, 1fr, 375px);
+    grid-template-rows: repeat(auto-fit, minmax(375px, 450px));
+    grid-auto-rows: minmax(375px, 450px);
     /* overflow: hidden; */
     row-gap: 45px;
     border: 1px solid black;
     justify-items: center;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 15%;
+    padding-right: 15%;
     /* align-items: start; */
+    grid-area: articleRight;
 }
 
 .articleRight .announcments,
@@ -173,8 +187,8 @@ html {
     /* flex: 1; */
     border: 1px solid black;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, minmax(45px, 1fr));
+    grid-template-columns: minmax(300px, 30fr);
+    grid-template-rows: .1fr repeat(auto-fit, minmax(45px, 1fr));
     grid-auto-rows: repeat(auto-fit, minmax(45px, 1fr));
     background-color: inherit;
     border-radius: 10px;
@@ -187,7 +201,7 @@ html {
 }
 
 .articleRight .announcments {
-    margin-top: 38px;
+    /* margin-top: px; */
 }
 
 
@@ -195,13 +209,13 @@ html {
 .announcments div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     color: black;
     font-size: .8rem;
     background-color: white;
     border: 1px solid black;
-    
+    padding-top: 18px;
     padding: 15px;
     position: relative;
     overflow: hidden;
@@ -238,4 +252,11 @@ span {
     font-size: .7;
     font-weight: bold;
     /* margin-bottom: 8px; */
+    /* z-index: 10; */
+}
+
+.article>h3, .articleRight h3 {
+    margin: 0;
+    padding: 0;
+    color: black;
 }
