@@ -4,9 +4,10 @@ html {
     margin: 0;
 }
 
-*{
+* {
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
 }
 
 .container {
@@ -96,15 +97,19 @@ html {
 .main {
     background-color: lightsteelblue;
     grid-area: main;
-    display: flex;
+    /* display: flex; */
+    display: grid;
     border: 1px solid black;
     margin: 0;
-    
+    grid-auto-flow: column;
+    grid-template-columns: 2fr 1fr;
+    /* justify-items: start;
+    align-items: start; */
 
 }
 
 .article {
-    flex: 6;
+    /* flex: 6; */
     overflow: auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(200px, 1fr));
@@ -147,55 +152,73 @@ html {
 }
 
 .main .articleRight {
-    flex: 2.5;
+    /* flex: 2.5; */
     display: grid;
     max-height: 100%;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(200px, 300px);
     grid-template-rows: repeat(auto-fit, clamp(300px, 1fr, 375px));
     grid-auto-rows: clamp(300px, 1fr, 375px);
-    overflow: hidden;
-    row-gap: 35px;
+    /* overflow: hidden; */
+    row-gap: 45px;
     border: 1px solid black;
+    justify-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    /* align-items: start; */
 }
 
 .articleRight .announcments,
 .articleRight .trending {
     /* max-height: 50%; */
-    flex: 1;
+    /* flex: 1; */
     border: 1px solid black;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
-    grid-auto-rows: repeat(auto-fit, minmax(50px, 1fr));
-    background-color: white;
+    grid-template-rows: repeat(auto-fit, minmax(45px, 1fr));
+    grid-auto-rows: repeat(auto-fit, minmax(45px, 1fr));
+    background-color: inherit;
     border-radius: 10px;
-    overflow: hidden;
-    position: relative;
+    /* overflow: hidden; */
+    /* position: relative; */
+    margin: 0;
+    justify-self: center;
+    padding-top: 16px;
+    /* align-self: center; */
 }
 
 .articleRight .announcments {
-    margin-bottom: 25px;
+    margin-top: 38px;
 }
 
-.articleRight .trending {
-    margin-top: 25px;
-}
 
 .trending div,
 .announcments div {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     color: black;
     font-size: .8rem;
     background-color: white;
     border: 1px solid black;
-    justify-items: flex-start;
+    
     padding: 15px;
     position: relative;
     overflow: hidden;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
 
+}
+
+.trending div:first-child,
+.announcments div:first-child{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.trending div:last-child,
+.announcments div:last-child {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .container .footer {
