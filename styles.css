@@ -66,7 +66,7 @@ body, html {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: 1fr;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.15);
     z-index: 3;
 }
 
@@ -239,18 +239,22 @@ p {
 }
 
 span {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: bold;
     margin: 0;
     padding: 0;
     overflow: visible;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+    margin-left: -1px;
+    color: rgba(0, 0, 0, .75);
+    font-family:Arial, Helvetica, sans-serif, Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: .035rem;
 }
 
 .articleRight h3 {
     margin: 0;
     padding: 0;
-    color: black;
+    color: rgba(0, 0, 0, 1);
     font-weight: lighter;
     justify-self: start;
     align-self: end;
@@ -278,17 +282,15 @@ span {
     overflow: visible;
 }
 
-/* Ensure no borders, shadows, or outlines on all child divs initially */
 .announcments div,
 .trending div {
     border: none;
     box-shadow: none;
     outline: none;
-    background: rgb(248, 248, 248); /* To maintain consistent backgrounds */
+    background: rgb(248, 248, 248);
     
 }
 
-/* Add custom lines for announcements */
 .announcments div:not(:last-child) {
     position: relative;
 }
@@ -297,13 +299,12 @@ span {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 10%; /* Center horizontally with 80% width */
+    left: 10%; 
     width: 80%;
-    height: 1px; /* Thickness */
-    background: rgba(0, 0, 0, 0.2); /* Faded black with 50% opacity */
+    height: 1px; 
+    background: rgba(0, 0, 0, 0.2); 
 }
 
-/* Add custom lines for trending */
 .trending div:not(:last-child) {
     position: relative;
 }
@@ -312,8 +313,16 @@ span {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 10%; /* Center horizontally with 80% width */
+    left: 10%; 
     width: 80%;
-    height: 1px; /* Thickness */
-    background: rgba(0, 0, 0, 0.2); /* Faded black with 50% opacity */
+    height: 1px; 
+    background: rgba(0, 0, 0, 0.2); 
+}
+
+.articleRight .trending p {
+    margin-top: -4px;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .07rem;
+    font-family:Arial, Helvetica, sans-serif, Georgia, 'Times New Roman', Times, serif;
 }
