@@ -66,6 +66,8 @@ body, html {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: 1fr;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+    z-index: 3;
 }
 
 .main {
@@ -78,6 +80,7 @@ body, html {
     grid-template-areas: 
         "hollow ..."
         "article articleRight";
+        z-index: 1;
 }
 
 #hollow {
@@ -156,7 +159,7 @@ body, html {
 .articleRight .trending {
     display: grid;
     grid-template-columns: minmax(300px, 30fr);
-    grid-template-rows: 0.1fr repeat(auto-fit, minmax(50px, 2fr));
+    grid-template-rows: 0.1fr repeat(auto-fit, 50px);
     border-radius: 10px;
     margin: 0;
     justify-self: center;
@@ -165,6 +168,7 @@ body, html {
 
 .articleRight .announcments {
     margin-top: -6px;
+    text-align: left;
 }
 
 .articleRight .trending {
@@ -186,7 +190,15 @@ body, html {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* .main .articleRight .trending:nth-child(2 + 2) {
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.5);
+} */
+
 .main .articleRight .announcments:first-child {
+    overflow: visible;
+}
+
+.main .articleRight .trending:first-child {
     overflow: visible;
 }
 
@@ -264,4 +276,44 @@ span {
     letter-spacing: .1rem;
     margin-bottom: 6px;
     overflow: visible;
+}
+
+/* Ensure no borders, shadows, or outlines on all child divs initially */
+.announcments div,
+.trending div {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: rgb(248, 248, 248); /* To maintain consistent backgrounds */
+    
+}
+
+/* Add custom lines for announcements */
+.announcments div:not(:last-child) {
+    position: relative;
+}
+
+.announcments div:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%; /* Center horizontally with 80% width */
+    width: 80%;
+    height: 1px; /* Thickness */
+    background: rgba(0, 0, 0, 0.2); /* Faded black with 50% opacity */
+}
+
+/* Add custom lines for trending */
+.trending div:not(:last-child) {
+    position: relative;
+}
+
+.trending div:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%; /* Center horizontally with 80% width */
+    width: 80%;
+    height: 1px; /* Thickness */
+    background: rgba(0, 0, 0, 0.2); /* Faded black with 50% opacity */
 }
