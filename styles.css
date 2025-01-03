@@ -80,9 +80,33 @@ body, html {
     border: 1px solid black;
 }
 
-.searchBar {
+.navs.searchBar {
     grid-area: searchBar;
+} 
+
+.search {
+    display: flex;
+    border: 1px solid black;
+    width: 99%;
+    justify-content: end;
+    padding: 0;
+    height: 95%;
 }
+
+#searchInput {
+    border-radius: 15px;
+    width: 92%;
+    height: 100%;
+    margin: 0;
+    background-color: rgba(185, 197, 206, 0.4);
+    /* outline: none; */
+    border: none;
+
+
+
+}
+
+
 
 .profile {
     grid-area: profile;
