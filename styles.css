@@ -67,19 +67,33 @@ body, html {
     background-color: whitesmoke;    
     grid-area: nav;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr .8fr 1fr;
     grid-template-rows: .6fr 1fr;
     grid-template-areas: 
     "searchBar searchBar profile"
     "userGreeting ... buttons";
     box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
     z-index: 3;
-
-
 }
 
 .navs {
     border: 1px solid black;
+}
+
+.searchBar {
+    grid-area: searchBar;
+}
+
+.profile {
+    grid-area: profile;
+}
+
+.userGreeting {
+    grid-area: userGreeting;
+}
+
+.buttons {
+    grid-area: buttons;
 }
 
 .main {
