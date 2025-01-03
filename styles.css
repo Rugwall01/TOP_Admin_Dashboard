@@ -15,7 +15,7 @@ body, html {
     padding: 16px;
     display: grid;
     grid-template-columns: minmax(225px, 1.6fr) 6fr;
-    grid-template-rows: 2.6fr 12fr 0.3fr;
+    grid-template-rows: 2.4fr 12fr 0.3fr;
     grid-template-areas: 
         "sidebar nav"
         "sidebar main"
@@ -80,7 +80,9 @@ body, html {
     grid-template-areas: 
         "hollow ..."
         "article articleRight";
-        z-index: 1;
+        /* z-index: 1; */
+        /* overflow: visible; */
+        clip-path: inset(-30px 0 0 0);
 }
 
 #hollow {
@@ -94,7 +96,7 @@ body, html {
 }
 
 .article {
-    overflow: auto;
+    /* overflow: auto; */
     display: grid;
     grid-template-columns: repeat(2, minmax(200px, 1fr));
     grid-auto-rows: minmax(200px, 1fr);
@@ -112,12 +114,13 @@ body, html {
     background-color: rgb(248, 248, 248);
     padding: 0;
     border-radius: 6px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     display: grid;
-    grid-template-columns: 0.5% 97% 1%;
-    grid-template-rows: 100%;
+    grid-template-columns: 0.5% 97% 2.5%;
+    grid-template-rows: 72.5% 27.5%;
     grid-template-areas: 
-        "stripe content1 .";
+        "stripe content1 ."
+        "stripe icons icons";
 }
 
 .articles .stripe {
@@ -133,14 +136,14 @@ body, html {
     grid-area: content1;
     color: black;
     overflow: auto;
-    font-size: 0.8rem;
+    font-size: 1rem;
     align-items: flex-start;
     justify-content: flex-start;
     text-align: left;
 }
 
 .articles .content p {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     opacity: 0.5;
     margin-left: 6px;
 }
@@ -149,34 +152,67 @@ body, html {
     display: grid;
     max-height: 100%;
     grid-template-columns: minmax(200px, 310px);
-    grid-auto-rows: minmax(325px, 750px);
+    grid-auto-rows: minmax(375px, 750px);
     justify-items: center;
     padding: 0 5%;
     grid-area: articleRight;
+    /* overflow: visible; */
+    border: 1px solid black;
+    margin-top: -10px;
 }
 
-.articleRight .announcments,
-.articleRight .trending {
+.main .articleRight .announcements,
+.main .articleRight .trending {
+    max-height: 90%;
     display: grid;
-    grid-template-columns: minmax(300px, 20fr);
-    grid-template-rows: 0.1fr repeat(auto-fit, 55px);
+    grid-template-columns: minmax(280px, 100%);
+    grid-template-rows: 0.1fr 1fr;
     border-radius: 10px;
     margin: 0;
     justify-self: center;
     background-color: transparent;
+    /* border: 1px solid black; */
+    /* clip-path: inset(-30px 0 0 0); */
+    padding: 0;
+    /* padding-top: 20px; */
+    z-index: 15;
+    overflow: visible !important;
 }
 
-.articleRight .announcments {
-    margin-top: -6px;
+.main .articleRight .trending {
+    margin-top: -10px;
+}
+
+.articleRight .announcements1,
+.articleRight .trending1 {
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 0.1fr repeat(auto-fit, 65px);
+    border-radius: 10px;
+    margin: 0;
+    justify-self: center;
+    background-color: transparent;
+    /* border: 1px solid black; */
+    padding: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main .articleRight .announcements {
+    margin-top: 18px;
+    /* margin-bottom: -8px; */
+
+}
+.articleRight .announcements1 {
+    margin-top: -18px;
     text-align: left;
 }
 
-.articleRight .trending {
-    margin: -10px 0 13px 0;
+.articleRight .trending1 {
+    margin: -18px 0 0px 0;
 }
 
-.trending>div,
-.announcments>div {
+.trending1>div,
+.announcements1>div {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -195,15 +231,15 @@ body, html {
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.5);
 } */
 
-.main .articleRight .announcments:first-child {
+.main .articleRight .announcements1:first-child {
     overflow: visible;
 }
 
-.main .articleRight .trending:first-child {
+.main .articleRight .trending1:first-child {
     overflow: visible;
 }
 
-.trending:first-child {
+.trending1:first-child {
     justify-self: start;
     align-self: start;
     margin-top: 0;
@@ -211,15 +247,15 @@ body, html {
     overflow: visible;
 }
 
-.trending>div:nth-child(2),
-.announcments>div:nth-child(2) {
+.trending1>div:nth-child(2),
+.announcements1>div:nth-child(2) {
     margin-top: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-.trending>div:last-child,
-.announcments>div:last-child {
+.trending1>div:last-child,
+.announcements1>div:last-child {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -233,7 +269,7 @@ body, html {
 }
 
 p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     padding: 0;
     margin: 0;
     opacity: 0.6;
@@ -256,14 +292,15 @@ span {
     letter-spacing: .035rem;
 }
 
-.articleRight h3 {
-    margin: 0;
+.main .articleRight .announcements>h3,
+.main .articleRight .trending>h3 {
+    margin-top: -10px;
     padding: 0;
     color: rgba(0, 0, 0, 1);
     font-weight: lighter;
     justify-self: start;
     align-self: end;
-    padding-left: 8px;
+    padding-left: 12px;
     overflow: visible;
 }
 
@@ -287,25 +324,25 @@ span {
     overflow: visible;
 }
 
-.announcments>div,
-.trending>div {
+.announcements1>div,
+.trending1>div {
     border: none;
     /* box-shadow: none; */
     outline: none;
     background: rgb(248, 248, 248);
-    box-shadow: 
+    /* box-shadow: 
     6px 0px 12px -6px rgba(0, 0, 0, .09),
     0 -10px 10px -10px rgba(0, 0, 0, 0),
     0 -10px 10px -10px rgba(0, 0, 0, 0),
     0 -10px 10px -10px rgba(0, 0, 0, 0);
-    
+    z-index: 2; */
 }
 
-.announcments div:not(:last-child) {
+.announcements1 div:not(:last-child) {
     position: relative;
 }
 
-.announcments div:not(:last-child)::after {
+.announcements1 div:not(:last-child)::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -315,11 +352,11 @@ span {
     background: rgba(0, 0, 0, 0.2); 
 }
 
-.trending div:not(:last-child) {
+.trending1 div:not(:last-child) {
     position: relative;
 }
 
-.trending div:not(:last-child)::after {
+.trending1 div:not(:last-child)::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -329,10 +366,23 @@ span {
     background: rgba(0, 0, 0, 0.2); 
 }
 
-.articleRight .trending p {
+.articleRight .trending1 p {
     margin-top: -4px;
     font-size: .8rem;
     font-weight: 500;
     letter-spacing: .07rem;
     font-family:Arial, Helvetica, sans-serif, Georgia, 'Times New Roman', Times, serif;
+}
+
+.trending1 div:not(:last-child, :nth-child(3)) {
+    z-index: 1;
+    /* box-shadow: 
+    3px 0px 12px -1px rgba(0, 0, 0, .08),
+    0 -10px 10px -10px rgba(0, 0, 0, 0),
+    0 -10px 10px -10px rgba(0, 0, 0, 0),
+    0 -10px 10px -10px rgba(0, 0, 0, 0); */
+}
+
+.announcements1 div:not(:last-child, :nth-child(2)) {
+    z-index: 1;
 }
