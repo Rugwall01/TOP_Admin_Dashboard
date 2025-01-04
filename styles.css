@@ -71,11 +71,11 @@ ul {
 
 }
 
-.container .sidebars li>object {
+svg use {
     fill: white;
-    margin-right: 10px;
-    width: 24px;
-    height: 24px;
+    /* margin-right: 10px; */
+    /* width: 24px;
+    height: 24px; */
 }
 .nav {
     background-color: whitesmoke;    
