@@ -43,9 +43,19 @@ body, html {
 }
 
 .container .sidebarsLogo {
+    display: flex;
+    align-items: center;
     text-align: left;
-    padding: 12px 0 0 45px;
+    padding: 12px 0 0 35px;
     font-size: 2rem;
+    margin-left: -34px;
+}
+
+.sidebarsLogo svg {
+    height: 48px;
+    width: 48px;
+    transform: translateY(-6%);
+    margin-right: 10px;
 }
 
 .container .sidebar {
@@ -55,7 +65,7 @@ body, html {
 .container .sidebars {
     color: white;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 ul {
@@ -73,10 +83,12 @@ ul {
 
 svg {
     fill: white;
-    margin-right: 10px;
-    width: 24px;
-    height: 24px;
+    margin-right: 23px;
+    width: 26px;
+    height: 26px;
+    transform: translateY(-8.75%);
 }
+
 .nav {
     background-color: whitesmoke;    
     grid-area: nav;
