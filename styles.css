@@ -442,14 +442,23 @@ span {
 }
 
 .main .articleRight .trending .trending1 div::before {
+    /* content: '\f005';
+    font-family: "Font Awesome 5  Free";
+    font-weight: 900;
+    font-size: 1.2rem; */
     content: '';
-    width: 40px;
-    height: 40px;
-    background-color: #007bff;
+    height: 45px;
+    width: 45px;
+
+    color: black;
+    margin-right: 8px;
+    display: inline-block;
+
+    background-color: blue;
     border-radius: 50%;
     position: absolute;
     top: 50%;
-    left: -60px;
+    left: 28px;
     transform: translateY(-50%);
 
 }
@@ -473,4 +482,8 @@ span {
 
 .announcements1 div:not(:last-child, :nth-child(2)) {
     z-index: 1;
+}
+
+.main .articleRight .trending .trending1>div {
+    padding-left: 90px;
 }
